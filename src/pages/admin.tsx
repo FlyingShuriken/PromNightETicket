@@ -100,34 +100,7 @@ export default function Admin({ origin }: { origin: string }) {
 					<Link className="btn btn-outline border-0 p-1" href={"/admin/scan"}>
 						Scan QR Code
 					</Link>
-					{/* <input type="checkbox" id="infoModal" className="modal-toggle" />
-					<div className="modal">
-						<div className="modal-box">
-							<h3 className="font-bold text-lg">Scan QR Code</h3>
-							<div
-								style={{
-									margin: "auto",
-									width: "400px",
-								}}
-							>
-								<QrReader
-									// ViewFinder={function noRefCheck() {}}
-									constraints={{
-										facingMode: "user",
-									}}
-									onResult={function noRefCheck() {}}
-								/>
-								<p>The value is: null</p>
-								<p>The error is: </p>
-							</div>
-							<p>{data}</p>
-							<div className="modal-action">
-								<label htmlFor="infoModal" className="btn">
-									Close
-								</label>
-							</div>
-						</div>
-					</div> */}
+
 					<h2 className=" text-3xl py-5">Verified Ticket</h2>
 					<div className="overflow-x-auto">
 						<table className="table w-full">
@@ -171,14 +144,14 @@ export default function Admin({ origin }: { origin: string }) {
 														<ImageIcon />
 													</a>
 													<label
-														htmlFor="infoModal"
+														htmlFor={`infoModal_${ticket.id}`}
 														className="btn btn-outline border-0 p-1"
 													>
 														<InfoIcon />
 													</label>
 													<input
 														type="checkbox"
-														id="infoModal"
+														id={`infoModal_${ticket.id}`}
 														className="modal-toggle"
 													/>
 													<div className="modal">
@@ -193,7 +166,10 @@ export default function Admin({ origin }: { origin: string }) {
 															)}
 															<p>Email: {ticket.email}</p>
 															<div className="modal-action">
-																<label htmlFor="infoModal" className="btn">
+																<label
+																	htmlFor={`infoModal_${ticket.id}`}
+																	className="btn"
+																>
 																	Close
 																</label>
 															</div>
@@ -247,14 +223,14 @@ export default function Admin({ origin }: { origin: string }) {
 															<ImageIcon />
 														</a>
 														<label
-															htmlFor="infoModal"
+															htmlFor={`unInfoModal_${ticket["IC number"]}`}
 															className="btn btn-outline border-0 p-1"
 														>
 															<InfoIcon />
 														</label>
 														<input
 															type="checkbox"
-															id="infoModal"
+															id={`unInfoModal_${ticket["IC number"]}`}
 															className="modal-toggle"
 														/>
 														<div className="modal">
@@ -274,7 +250,10 @@ export default function Admin({ origin }: { origin: string }) {
 																<p>Time: {ticket.Timestamp}</p>
 																<p>Email: {ticket["Email address"]}</p>
 																<div className="modal-action">
-																	<label htmlFor="infoModal" className="btn">
+																	<label
+																		htmlFor={`unInfoModal_${ticket["IC number"]}`}
+																		className="btn"
+																	>
 																		Close
 																	</label>
 																</div>
