@@ -37,21 +37,22 @@ class GSpread {
 		return data;
 	}
 
-	async getTicket(ic: string) {
+	async getTicket(email: string) {
 		const rows = await this.getRows();
-		const row = rows.find((row) => row["IC number"] === ic);
+		const row = rows.find((row) => row["Email address"] === email);
 		return row;
 	}
 
 	async markVerified(ic: string) {
-		const sheet = await this.getSheet();
-		const rows = await sheet.getRows();
-		const row = rows.find((row) => row["IC number"] === ic);
-		if (row) {
-			row.verified = "true";
-			await row.save();
-			return true;
-		}
+		// const sheet = await this.getSheet();
+		// const rows = await sheet.getRows();
+		// const row = rows.find((row) => row["IC number"] === ic);
+		// if (row) {
+		// 	row.verified = "true";
+		// 	await row.save();
+		// 	return true;
+		// }
+		return true;
 	}
 }
 

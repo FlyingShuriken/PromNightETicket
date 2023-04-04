@@ -11,7 +11,10 @@ const Home = ({ origin }: { origin: string }) => {
 	const [unverifiedTicket, setUnverifiedTicket] = useState<
 		TicketModel | undefined
 	>(undefined);
+	const [loading, setLoading] = useState<boolean>(false);
+
 	const supabase = useSupabaseClient();
+
 	useEffect(() => {
 		supabase.auth.getSession().then((session) => {
 			const { data, error } = session;
@@ -27,6 +30,7 @@ const Home = ({ origin }: { origin: string }) => {
 
 	useEffect(() => {
 		if (userSession) {
+			setLoading(true);
 			fetch(`${origin}/api/ticket`)
 				.then((res) => res.json())
 				.then((data) => {
@@ -36,11 +40,21 @@ const Home = ({ origin }: { origin: string }) => {
 							.then((res) => res.json())
 							.then((data) => {
 								setUnverifiedTicket(data.data);
+								setLoading(false);
 							});
-					}
+					} else setLoading(false);
 				});
 		}
 	}, [origin, userSession]);
+
+	const signOut = async () => {
+		const { error } = await supabase.auth.signOut();
+		supabase.auth.getSession().then((session) => {
+			const { data, error } = session;
+			setUserSession(data.session);
+		});
+		return;
+	};
 
 	return (
 		<>
@@ -52,7 +66,9 @@ const Home = ({ origin }: { origin: string }) => {
 					<h1 className=" text-center text-5xl py-5">
 						Welcome to our eTicketing website!
 					</h1>
-					{userSession ? (
+					{loading ? (
+						<button className="btn loading">loading</button>
+					) : userSession ? (
 						ticket ? (
 							<>
 								<div className=" text-center text-2xl py-5">
@@ -61,6 +77,9 @@ const Home = ({ origin }: { origin: string }) => {
 								<Link className=" btn btn-primary" href={"/ticket"}>
 									View it
 								</Link>
+								<button className=" btn btn-primary mt-3" onClick={signOut}>
+									Sign Out
+								</button>
 							</>
 						) : unverifiedTicket ? (
 							<>
@@ -68,6 +87,9 @@ const Home = ({ origin }: { origin: string }) => {
 									You have a unverified ticket, you can wait for the team to
 									verify it. Come back later!
 								</div>
+								<button className=" btn btn-primary mt-3" onClick={signOut}>
+									Sign Out
+								</button>
 							</>
 						) : (
 							<>
@@ -82,6 +104,9 @@ const Home = ({ origin }: { origin: string }) => {
 								>
 									Buy one
 								</a>
+								<button className=" btn btn-primary mt-3" onClick={signOut}>
+									Sign Out
+								</button>
 							</>
 						)
 					) : (

@@ -34,6 +34,15 @@ export default function Admin({ origin }: { origin: string }) {
 
 	const supabase = useSupabaseClient();
 
+	useEffect(() => {
+		supabase.rpc("get_my_claim", { claim: "userrole" }).then((res) => {
+			console.log(res);
+			if (res.data !== "ADMIN") {
+				window.location.href = "/";
+			}
+		});
+	}, [supabase]);
+
 	const verifyTicket = async (ticket: unverifiedTicketModel) => {
 		fetch(`${origin}/api/verifyTicket`, {
 			method: "POST",
@@ -43,7 +52,7 @@ export default function Admin({ origin }: { origin: string }) {
 			body: JSON.stringify({
 				id: ticket["IC number"],
 				created_at: new Date().getTime(),
-				uid: (await supabase.auth.getSession()).data.session?.user.id,
+				// uid: await supabase.auth.user().id,
 				name: ticket[
 					"Account Name (FOR TNG ONLY)\nIf you are not using a TNG account with your own name, please provide the account name you are using."
 				],

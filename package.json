@@ -24,10 +24,10 @@
     "eslint-config-next": "13.2.4",
     "google-spreadsheet": "^3.3.0",
     "next": "13.2.4",
+    "qrcode.react": "^3.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-image-gallery": "^1.2.11",
-    "react-qrcode-logo": "^2.9.0",
     "react-zxing": "^1.1.4",
     "typescript": "5.0.3"
   },

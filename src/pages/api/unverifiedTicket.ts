@@ -25,6 +25,7 @@ export default async function handler(
 			return;
 		} else {
 			const email = (await supabase.auth.getSession()).data.session?.user.email;
+			console.log(email);
 			if (!email) {
 				res.status(401).json({ error: "Please sign in" });
 				return;

@@ -27,12 +27,14 @@ export default async function handler(
 					.json({ data: data ? data.find((t) => t.uid === id) : null, error });
 			return;
 		} else {
-			if (data) {
+			const email = (await supabase.auth.getSession()).data.session?.user.email;
+			if (!email) {
+				res.status(401).json({ error: "Please sign in" });
+				return;
+			} else if (data) {
+				const id = (await supabase.auth.getSession()).data.session?.user.id;
 				res.status(200).json({
-					data: data.find(
-						async (d: any) =>
-							d.uid === (await supabase.auth.getSession()).data.session?.user.id
-					),
+					data: data.find((d: any) => d.uid === id),
 					error,
 				});
 				return;

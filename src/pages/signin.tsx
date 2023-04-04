@@ -28,7 +28,7 @@ export default function Signin() {
 								Sign In to verify your payment and get your ticket!
 							</h1>
 						</div>
-						<div className="w-2/6 bg-gray-100 rounded-lg p-8 flex flex-col items-center mt-10">
+						<div className="w-full md:w-3/6 bg-gray-100 rounded-lg p-8 flex flex-col items-center mt-10">
 							<h2 className="text-gray-900 text-lg font-medium title-font mb-5">
 								Sign In
 							</h2>
