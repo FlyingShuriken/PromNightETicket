@@ -53,9 +53,7 @@ export default function Admin({ origin }: { origin: string }) {
 				id: ticket["IC number"],
 				created_at: new Date().getTime(),
 				// uid: await supabase.auth.user().id,
-				name: ticket[
-					"Account Name (FOR TNG ONLY)\nIf you are not using a TNG account with your own name, please provide the account name you are using."
-				],
+				name: ticket["NAME (FULL NAME AS PER IC)"],
 				class: ticket.Class,
 				email: ticket["Email address"],
 				phoneNumber: ticket["Phone Number"],
