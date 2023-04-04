@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { QRCodeSVG } from "qrcode.react";
+import { QRCode } from "react-qrcode-logo";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useEffect, useState } from "react";
 import { TicketModel } from "@/models/TicketModel";
@@ -34,12 +34,12 @@ export default function Ticket({ origin }: { origin: string }) {
 			{ticket && (
 				<div className="w-screen h-screen py-8 px-5">
 					<div className=" border-2 p-8 w-full">
-						<QRCodeSVG
+						<QRCode
 							value={
 								`${origin}/api/ticket?` +
 								new URLSearchParams({ id: ticket.uid })
 							}
-							className="mx-auto mb-8 w-64 h-64"
+							// className="mx-auto mb-8 w-64 h-64"
 						/>
 						<div className="info flex flex-row gap-5 w-full">
 							<div className="left w-1/2">
