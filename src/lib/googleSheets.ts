@@ -3,9 +3,7 @@ import creds from "./sheetsCred.json";
 import { unverifiedTicketModel } from "@/models/unverifiedTicketModel";
 class GSpread {
 	async getSheet() {
-		const doc = new GoogleSpreadsheet(
-			"160HH--AtPb9utMMVtvR2CrHdg_0umEvoFJrsX1RBLi0"
-		);
+		const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEETS_ID);
 		await doc.useServiceAccountAuth(creds);
 		await doc.loadInfo();
 		const sheet = doc.sheetsByIndex[0];
