@@ -104,7 +104,7 @@ const Home = ({ origin }: { origin: string }) => {
 								</div>
 								<a
 									className=" btn btn-primary"
-									href="https://forms.gle/rfMXCsmecVtb7HS76"
+									href="https://forms.gle/iRmBwTquESkJP2Xy8"
 									target="_blank"
 									rel="noreferrer"
 								>
