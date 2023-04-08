@@ -31,12 +31,18 @@ const Home = ({ origin }: { origin: string }) => {
 	useEffect(() => {
 		if (userSession) {
 			setLoading(true);
-			fetch(`${origin}/api/ticket`)
+			fetch(
+				`${origin}/api/ticket?` +
+					new URLSearchParams({ id: userSession.user.id })
+			)
 				.then((res) => res.json())
 				.then((data) => {
 					setTicket(data.data !== null ? data.data : undefined);
 					if (!data.data) {
-						fetch(`${origin}/api/unverifiedTicket`)
+						fetch(
+							`${origin}/api/unverifiedTicket?` +
+								new URLSearchParams({ id: userSession.user.id })
+						)
 							.then((res) => res.json())
 							.then((data) => {
 								setUnverifiedTicket(data.data);

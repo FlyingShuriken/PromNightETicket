@@ -258,14 +258,14 @@ export default function Admin({ origin }: { origin: string }) {
 															</div>
 														</div>
 														<label
-															htmlFor="confirmModal"
+															htmlFor={`confirmModal_${ticket["IC number"]}`}
 															className="btn btn-outline border-0 p-1"
 														>
 															<CheckIcon />
 														</label>
 														<input
 															type="checkbox"
-															id="confirmModal"
+															id={`confirmModal_${ticket["IC number"]}`}
 															className="modal-toggle"
 														/>
 														<div className="modal">
@@ -283,7 +283,10 @@ export default function Admin({ origin }: { origin: string }) {
 																	>
 																		Verify
 																	</button>
-																	<label htmlFor="confirmModal" className="btn">
+																	<label
+																		htmlFor={`confirmModal_${ticket["IC number"]}`}
+																		className="btn"
+																	>
 																		Cancel
 																	</label>
 																</div>

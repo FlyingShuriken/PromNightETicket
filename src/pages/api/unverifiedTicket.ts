@@ -13,18 +13,23 @@ export default async function handler(
 		res,
 	});
 	const { query, method } = req;
+	const id = query.id ? (query.id as string) : undefined;
 
 	// Response
 	if (method === "GET") {
 		const gspread = new GSpread();
 		const user = (await supabase.rpc("get_my_claim", { claim: "userrole" }))
 			.data;
+		const email = (await supabase.auth.getSession()).data.session?.user.email;
 		if (user === "ADMIN") {
 			const rows = await gspread.getRows();
-			res.status(200).json({ data: rows });
+			if (id)
+				res
+					.status(200)
+					.json({ data: rows.find((row) => row["Email address"] === email) });
+			else res.status(200).json({ data: rows });
 			return;
 		} else {
-			const email = (await supabase.auth.getSession()).data.session?.user.email;
 			console.log(email);
 			if (!email) {
 				res.status(401).json({ error: "Please sign in" });
