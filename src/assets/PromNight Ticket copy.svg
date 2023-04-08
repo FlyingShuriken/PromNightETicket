@@ -2470,8 +2470,8 @@
             </g>
         </g>
     </g>
-    <text transform="translate(220.389461, 150)" color="black" font-family="Courier New, monospace"
-        font-size="smaller">Choi Jin Seng</text>
+    <text transform="translate(220.389461, 150.144203)" color="black" font-family="Courier New, monospace" id="name"
+        font-size="0.7em">Your name</text>
     <g fill="#000000" fill-opacity="1">
         <g transform="translate(182.73064, 163.096552)">
             <g>
@@ -2541,6 +2541,8 @@
             </g>
         </g>
     </g>
+    <text transform="translate(238.389461, 163.096552)" color="black" font-family="Courier New, monospace" id="contact"
+        font-size="0.7em">0123456789</text>
     <g fill="#000000" fill-opacity="1">
         <g transform="translate(182.73064, 176.0489)">
             <g>
@@ -2617,6 +2619,8 @@
             </g>
         </g>
     </g>
+    <text transform="translate(244.042845, 176.0489)" color="black" font-family="Courier New, monospace" id="icnum"
+        font-size="0.7em">050134060123</text>
     <g fill="#000000" fill-opacity="1">
         <g transform="translate(241.669344, 176.0489)">
             <g />
@@ -2624,7 +2628,7 @@
     </g>
     <g clip-path="url(#39f4de1406)">
         <g transform="matrix(0.391667, 0, 0, 0.391667, 412.024589, 123.018302)">
-            <image x="0" y="0" width="180" class="qrcode"
+            <image x="0" y="0" width="180" id="qrcode"
                 xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAABmJLR0QA/wD/AP+gvaeTAAAFcElEQVR4nO3dwW7bMBBF0brw//9yuivoxQVmMPMot7hn1aYypTQPFCMOqdevgJ+fn79/fr1e68ecXz/RMZXPkkqbE4nvccvv9Rb13zAcQoZD6H3+pXs/PnXved376+SzW2OgiUn73THT1s/RnkPIcAgZDqE3/UPlvji5t3V/v6fjJ/fjSTvd9umYytcnJj9Hew4hwyFkOIRwzHFTZfwxebbR1R0D0WcT5936HivsOYQMh5DhEIqPOSr3xclcA51ra36k287WWCQxv9NlzyFkOIQMhxCOObZ+h57UVWxdz6SetHudW7ban7RjzyFkOIQMh9DHmOOp360ncytPzadMrif9/W79HO05hAyHkOEQeqV/X/842aCecavWYfKcI3GPn8wHWc+hxxgOIcMhhDe5yf11696ceG6xNT5InOup+SxizyFkOIQMh1C7hnTr2UCitrTbfuX4yR4h6T0/utdzqlybPYeQ4RAyHEIfN5vE84CbcxPUZuKZTUW3/a1628k1nOw5hAyHkOEQeifueZX73KTNyV6cW/tndM87efaQ2K+98nV7DiHDIWQ4hEr7kCb2nKjsB9r1DXuJJmo7Es8/Kuey5xAyHEKGQ+iduG+d0nWU6XeR3KzJ+Ia6kJM9h5DhEDIcQqV6jvSa0vR6jco1kEQ9x7ftO0LH23MIGQ4hwyG0Vs8x2RfrlKgd2Wrn5vpbOm/3s5M27TmEDIeQ4RB6bT3bOKXXenTPtbXuI7EX2dbama2a05M9h5DhEDIcQqN3vN2cc0nXh261uXVMZV+QislYx55DyHAIGQ6h0phja86lIjEX073X3qxN2XpOs7X252TPIWQ4hAyHEK5bSezVsTWe2JJYy5qYb7q5n7r1HCoxHEKGQ6j9jrf0+8zSa2WfWu+aWIfS1a0XtucQMhxChkOo9I63xN7b/8p+Hjf3Zk3Uik5+dvYcQoZDyHAIvbu/l0/eeUYS+5EnxiLpPUsm9Z6uW9FVhkPIcAhhDWliPefWe1IS9R/pfbfSc0CJdTf2HEKGQ8hwCI3mVrpu7k+aqNtIvIPtpu7123MIGQ4hwyG0tifY1nORb6tRTUjMB1Xa6a65tecQMhxChkOovW7l48PNexiZ1JRMzpUeG6XfI5Oeb7LnEDIcQoZDCN/x9nHQxfWoT9VvptekUDuJdShbbdpzCBkOIcMhhHMrp0RtB/m2NbSTZyeJPccqx5PuWMSeQ8hwCBkOoffWvZZs3bPT60q644annkkkxn8+51Cb4RAyHEL4LvtTd3+I01M1m1vzJpX2ydYYYquGozvesucQMhxChkOotFb24wNL71uZ3F9v7v+d3ud00k6ixvZkzyFkOIQMh1CphrTU0MXnB9R+eoxC0mOgyXkn4xV7DiHDIWQ4hNo1pB8ffmhtSGLdSsVkjiNRq5uuQbHnEDIcQoZD6GPv88Q+YOm5ia25jO5n089RuuOGrf+r8+v2HEKGQ8hwCH2MOdJ7gG7VP3bb33rmka7l7F5P5bPOrSjCcAgZDiFcK3vqrluZ/M6dXi/61LtOtvYXmXy/3Wc59hxChkPIcAiN9j4vnSC8F9akncRcUvcaJtJzYfYcQoZDyHAIvdP3wq2aUGo/sS/W1rOWRJ0pSVy/PYeQ4RAyHEKRtbJbazS+rUa1It3mzfW09hxChkPIcAi96R+29tmk4596fwod072G9H5cp8n+sKfu9dhzCBkOIcMhhGOOLZPnGen3iWw9J/gX19E4t6IRwyFkOITiY46uSZ3mabLnGLk5dkmsJe6OUew5hAyHkOEQ+rp6jpv7olZsPUuo2Bonbf0f2nMIGQ4hwyEU2awisc935VynxJ5d6RqOm9dZYc8hZDiEDIfQH5VUHZwzRZimAAAAAElFTkSuQmCC"
                 height="180" preserveAspectRatio="xMidYMid meet" />
         </g>
