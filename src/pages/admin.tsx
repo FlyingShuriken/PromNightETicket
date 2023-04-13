@@ -10,6 +10,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import Link from "next/link";
+import { IconCheck, IconX } from "@tabler/icons-react";
 // import { QrReader } from "react-qr-reader";
 
 export default function Admin({ origin }: { origin: string }) {
@@ -17,7 +18,9 @@ export default function Admin({ origin }: { origin: string }) {
 	const [unverifiedTicket, setUnverifiedTicket] = useState<
 		unverifiedTicketModel[] | undefined
 	>(undefined);
-	const [data, setData] = useState("No result");
+	const [sendingTicket, setSendingTicket] = useState<
+		"sending" | "success" | "failed" | undefined
+	>(undefined);
 
 	useEffect(() => {
 		fetch(`${origin}/api/ticket`)
@@ -66,24 +69,60 @@ export default function Admin({ origin }: { origin: string }) {
 			.then((data) => {
 				console.log(data);
 				if (!data.error) {
-					fetch(`${origin}/api/ticket`)
+					fetch(`${origin}/api/sendTicket`, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({ id: data.data[0].uid }),
+					})
 						.then((res) => res.json())
 						.then((data) => {
-							setTickets(data.data !== null ? data.data : undefined);
-							fetch(`${origin}/api/unverifiedTicket`)
-								.then((res) => res.json())
-								.then((unverified) => {
-									setUnverifiedTicket(
-										unverified.data.filter(
-											(t: unverifiedTicketModel) =>
-												!data.data
-													.map((t: TicketModel) => t.id)
-													.includes(t["IC number"])
-										)
-									);
-								});
+							console.log(data);
+							if (data.data) {
+								fetch(`${origin}/api/ticket`)
+									.then((res) => res.json())
+									.then((data) => {
+										setTickets(data.data !== null ? data.data : undefined);
+										fetch(`${origin}/api/unverifiedTicket`)
+											.then((res) => res.json())
+											.then((unverified) => {
+												setUnverifiedTicket(
+													unverified.data.filter(
+														(t: unverifiedTicketModel) =>
+															!data.data
+																.map((t: TicketModel) => t.id)
+																.includes(t["IC number"])
+													)
+												);
+											});
+									});
+							}
 						});
 				}
+				return;
+			});
+	};
+
+	const handleSendTicket = async (ticket: TicketModel) => {
+		setSendingTicket("sending");
+		fetch(`${origin}/api/sendTicket`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ id: ticket.uid }),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				if (data.data) {
+					console.log("done");
+					setSendingTicket("success");
+					setTimeout(() => {
+						setSendingTicket(undefined);
+					}, 1000);
+				} else setSendingTicket("failed");
 				return;
 			});
 	};
@@ -173,8 +212,24 @@ export default function Admin({ origin }: { origin: string }) {
 															</div>
 														</div>
 													</div>
-													<button className="btn btn-outline px-1 py-0">
-														Send Ticket
+													<button
+														className="btn btn-outline px-1 py-0"
+														onClick={() => handleSendTicket(ticket)}
+														disabled={sendingTicket === "sending"}
+													>
+														{sendingTicket ? (
+															sendingTicket === "sending" ? (
+																"SENDING"
+															) : sendingTicket === "success" ? (
+																<IconCheck color="green" />
+															) : sendingTicket === "failed" ? (
+																<IconX color="red" />
+															) : (
+																""
+															)
+														) : (
+															"Send Ticket"
+														)}
 													</button>
 												</div>
 											</td>

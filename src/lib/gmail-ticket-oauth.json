@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "promnight",
+  "private_key_id": "34bf479602768bd0d78d303e53bb88c77f172fc2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCvzunNMPXrIL+W\nmXmeRXkqa91NYqr+CbVx05htRDJW2dIF0+ssVFDXeSQ/8vVMWCVJpkMKTYVDAZId\n4dV+gq+bJiNobSMfj+IX0OqxSvvZ3Md21xUoltwpLer3BlQgyh+P1DDAZidD077/\n/LWqC/ApODL4JdM2caEpjh4f2nCpm2csYacdQFIpyBa5rInojfEo2WaNWrCN0O7e\nwvbc0Dljg5S3WDf9h5GPs1MAjzWMPZjKYXFfHC52NH2uSys3hbV+7MnEugFmov2l\ndf1RZbXobnxY0uArUtJYt9+V74w54Ouc6V+HRMr+miXbf/zpimMTjKRGkbaDd5QY\nzsqZ1xcNAgMBAAECggEACyo2yuMrGu2PfT7t7FE5KqqC+WEkvtFbBomLipTkJYPb\nxKb6rmwEXkrBNJZ3YYvPgmfepg7aQbEd2Gv5JPmjsVSwtvcHXf/DOgP4g53hdKqC\nuFdcbqF2Bd92po1uVk6/xmCRYAacw7/0x0kDOHNdoyCAjCXKzhBVTdBKtXcn5H1w\n5PxSOoo/AAQp8Vyhrx7P7H4VYWsc96ErYxrRpvKPcCs0ZjUIeMKAhQAuQd2zab5t\ne101zCHbBbGQicn48h3eKPH3gYA5GkBoIqRrH9p6mA/7qeoAFEbA2DDSENe+eZnW\nHQ6hvaWuwSWjwfN8BL0dQJN8L9mi1IOaTlAXhgwqgQKBgQDuWFMzxERYEaHThZFz\nFMQ1hSYQGPMXPgyRDFFRQNTzjYDPtz/qOBvaAvb62sWslp0JOEw4gQNcgbewrgY3\ndJSFBlfkl/egHUJw/PpSs0Sxe9Nc+KjwRQU8cqg5eGhhwW01kBqprG/f1PfLjc2S\nC1cahWCaugw8iOk8xrvihaPYMQKBgQC81LhDcNIOYEoQLipm7Vhejsl9HOie7Lq1\nZNKJ0leiq2g5aU9fvphLM6C2Ad5ejXDgpvQPFPv2hN/Q2reuvjepWPVQO6k/TfWA\nC7lvjWxG0g9kJh6+LvSTIlxF76dwQwsKYqDGkWzxoazgawWUT60SUtUETM8fTi51\nthAWUzRRnQKBgQCSZVIFk+HerkXVpE7ofrLdpMDyVkDJ3+TcGtK/s7CZQCsEaqwp\ncvk4eWW2QzXzgjdGeHvooOWtpkdrkBhla4fmBTVrRSRmBlLPD7O5pD7nPQVgL6Ok\noOBMdqh5VEnY8XPg2HhoC3BT7X2eW6UOtUR1F8N0hh4J+JY6LF8vDaLLoQKBgF5h\n4Jvs50FCRaKiwJTjqxjQO8uqSGcvIf+KnmU+2oi3LggMKB1OEab87iYq9u/BuJrB\nOBnVvj6wmYI14DuaXg3qJettdqHqoHvY4F3ujSE023aOSy16IMruELrwF3vYNsuB\nEqVNiOuZiOQ++fHwhSw0dL6KebhHBpfVYWMXQX5NAoGBAL6edRz2oLLWSaFwKt1l\npN/oXXqX8dvQy791HvaLh12b3oHpL+j/oOhIp2j2+dTnpNuSY7yynaj5VMgTr1Kz\nrpOm1W4DTm/zTJCUcwXMMiJ06erYfP1SooNE1UleOZ7f9BWID3u5uqWenGbyzwe8\nR3OWNdgnVNz++d0x3iP54NIC\n-----END PRIVATE KEY-----\n",
+  "client_email": "gmail-ticket@promnight.iam.gserviceaccount.com",
+  "client_id": "108907518055974958149",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gmail-ticket%40promnight.iam.gserviceaccount.com"
+}
