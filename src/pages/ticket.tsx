@@ -41,8 +41,7 @@ export default function Ticket({ origin }: { origin: string }) {
 							contact={ticket.phoneNumber}
 							icnum={ticket.id}
 							qrcode={
-								`${origin}/api/ticket?` +
-								new URLSearchParams({ id: ticket.uid })
+								`${origin}/api/ticket?` + new URLSearchParams({ id: ticket.id })
 							}
 						/>
 					</>
@@ -52,7 +51,7 @@ export default function Ticket({ origin }: { origin: string }) {
 							<QRCodeSVG
 								value={
 									`${origin}/api/ticket?` +
-									new URLSearchParams({ id: ticket.uid })
+									new URLSearchParams({ id: ticket.id })
 								}
 								className="mx-auto mb-8 w-64 h-64"
 							/>

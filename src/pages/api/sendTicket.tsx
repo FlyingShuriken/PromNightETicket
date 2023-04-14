@@ -39,7 +39,7 @@ export default async function handler(
 			);
 			const { data, error } = await adminClient.from("Ticket").select();
 			if (data) {
-				const ticket = data.find((ticket) => ticket.uid === id);
+				const ticket = data.find((ticket) => ticket.id === id);
 				if (!ticket) return res.status(400).json({ error: "Ticket not found" });
 				try {
 					const html = ReactDOMServer.renderToStaticMarkup(
@@ -48,8 +48,7 @@ export default async function handler(
 							contact={ticket.phoneNumber}
 							icnum={ticket.id}
 							qrcode={
-								`${origin}/api/ticket?` +
-								new URLSearchParams({ id: ticket.uid })
+								`${origin}/api/ticket?` + new URLSearchParams({ id: ticket.id })
 							}
 						/>
 					);
@@ -62,14 +61,8 @@ export default async function handler(
 							text: `This is your ticket! Download it and show it with your IC to the counter!`,
 							html: `<html><body><h1>This is your ticket! Download it and show it with your IC to the counter!</h1></body></html>`,
 							attachments: [
-								// {
-								// 	filename: `ticket_${ticket.uid}.svg`,
-								// 	content: html,
-								// 	contentType: "image/svg+xml",
-								// 	cid: `ticket_${ticket.uid}`,
-								// },
 								{
-									filename: `ticket_${ticket.uid}.html`,
+									filename: `ticket_${ticket.id}.html`,
 									content: `
                                       <html>
                                         <body>
@@ -81,7 +74,7 @@ export default async function handler(
 								},
 							],
 						},
-						function (error, info) {
+						function (error: any, info: any) {
 							if (error) {
 								console.log(error);
 							} else {

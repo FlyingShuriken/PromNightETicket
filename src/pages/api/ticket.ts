@@ -24,7 +24,7 @@ export default async function handler(
 			else
 				res
 					.status(200)
-					.json({ data: data ? data.find((t) => t.uid === id) : null, error });
+					.json({ data: data ? data.find((t) => t.id === id) : null, error });
 			return;
 		} else {
 			const email = (await supabase.auth.getSession()).data.session?.user.email;
@@ -34,7 +34,7 @@ export default async function handler(
 			} else if (data) {
 				const id = (await supabase.auth.getSession()).data.session?.user.id;
 				res.status(200).json({
-					data: data.find((d: any) => d.uid === id),
+					data: data.find((d: any) => d.id === id),
 					error,
 				});
 				return;
