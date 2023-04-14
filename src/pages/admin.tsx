@@ -53,9 +53,8 @@ export default function Admin({ origin }: { origin: string }) {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				id: ticket["IC number"],
+				id: ticket["IC number"].replaceAll("-", ""),
 				created_at: new Date().getTime(),
-				// uid: await supabase.auth.user().id,
 				name: ticket["NAME (FULL NAME AS PER IC)"],
 				class: ticket.Class,
 				email: ticket["Email address"],
@@ -74,7 +73,7 @@ export default function Admin({ origin }: { origin: string }) {
 						headers: {
 							"Content-Type": "application/json",
 						},
-						body: JSON.stringify({ id: data.data[0].uid }),
+						body: JSON.stringify({ id: data.data[0].id }),
 					})
 						.then((res) => res.json())
 						.then((data) => {
@@ -111,7 +110,7 @@ export default function Admin({ origin }: { origin: string }) {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ id: ticket.uid }),
+			body: JSON.stringify({ id: ticket.id }),
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -256,10 +255,15 @@ export default function Admin({ origin }: { origin: string }) {
 									unverifiedTicket
 										.filter(
 											(ticket) =>
-												!tickets?.map((t) => t.id).includes(ticket["IC number"])
+												!tickets
+													?.map((t) => t.id)
+													.includes(ticket["IC number"].replaceAll("-", ""))
 										)
 										.map((ticket) => (
-											<tr key={ticket["IC number"]} className="hover">
+											<tr
+												key={`${ticket["IC number"]}_${ticket["NAME (FULL NAME AS PER IC)"]}`}
+												className="hover"
+											>
 												<td>{ticket["IC number"]}</td>
 												<td>{ticket["NAME (FULL NAME AS PER IC)"]}</td>
 												<td>{ticket.Class}</td>

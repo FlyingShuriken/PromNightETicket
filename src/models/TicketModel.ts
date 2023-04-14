@@ -1,7 +1,7 @@
 export type TicketModel = {
 	id: string;
 	created_at: number;
-	uid: string;
+	uid?: string;
 	name: string;
 	class: string;
 	email: string;
