@@ -4,7 +4,7 @@ export const Copyright = () => {
 	return (
 		<div className="text-center flex flex-cols gap-1">
 			{"Copyright © "}
-			<Link color="inherit" href="/">
+			<Link color="inherit" href="https://flyingshuriken.com/">
 				Choi JS
 			</Link>{" "}
 			{new Date().getFullYear()}
